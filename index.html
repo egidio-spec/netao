@@ -106,44 +106,24 @@
     }
 
     /* ====== ESTILO DOS PATROCINADORES ====== */
-    .promo-section {
+    .sponsor-section {
       text-align: center;
       background-color: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
-      padding: 40px 20px;
+      padding: 50px 20px;
       margin-top: 40px;
     }
 
-    .promo-section h2 {
+    .sponsor-section h2 {
       color: #ffc107;
       font-weight: bold;
-      margin-bottom: 30px;
-    }
-
-    .promo-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-
-    .promo-card {
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 25px;
-      width: 300px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .promo-card h3 {
-      color: #ffc107;
-      margin-bottom: 10px;
-    }
-
-    .promo-card p {
-      color: #ddd;
-      font-size: 1em;
       margin-bottom: 20px;
+    }
+
+    .sponsor-section p {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 25px;
     }
 
     .btn-promo {
@@ -161,6 +141,7 @@
       background-color: #ffcd39;
       transform: scale(1.05);
     }
+
   </style>
 </head>
 <body>
@@ -261,26 +242,18 @@
     </div>
   </section>
 
-  <!-- ✅ SEÇÃO PATROCINADORES -->
-  <section id="patrocinadores" class="promo-section container">
-    <h2>🔥 Patrocinadores Oficiais</h2>
-    <div class="promo-container">
+  <!-- ✅ Seção GH Muscle -->
+  <section id="patrocinadores" class="sponsor-section container">
+    <h2>💪 GH Muscle</h2>
+    <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
+    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
+  </section>
 
-      <!-- GH Muscle -->
-      <div class="promo-card">
-        <h3>GH Muscle 💪</h3>
-        <p>Compre seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
-        <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
-      </div>
-
-      <!-- Atomic Labs -->
-      <div class="promo-card">
-        <h3>Atomic Labs ⚡</h3>
-        <p>Ganhe <strong>10% de desconto</strong> em toda a loja com o cupom <strong>NETAO</strong>!</p>
-        <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">🔥 Ir para Atomic Labs</a>
-      </div>
-
-    </div>
+  <!-- ✅ Seção Atomic Labs -->
+  <section class="sponsor-section container">
+    <h2>⚡ Atomic Labs</h2>
+    <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
+    <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">🔥 Ir para Atomic Labs</a>
   </section>
 
   <!-- Seção de Metas -->
