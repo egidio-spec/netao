@@ -105,7 +105,7 @@
       margin-bottom: 8px;
     }
 
-    /* ====== ESTILO DO BOTÃO E SEÇÃO CUPOM ====== */
+    /* ====== ESTILO DOS PATROCINADORES ====== */
     .promo-section {
       text-align: center;
       background-color: rgba(0, 0, 0, 0.85);
@@ -117,20 +117,33 @@
     .promo-section h2 {
       color: #ffc107;
       font-weight: bold;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
-    .promo-section p {
-      font-size: 1.1em;
-      color: #ddd;
-      margin-bottom: 25px;
-    }
-
-    .promo-buttons {
+    .promo-container {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .promo-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 25px;
+      width: 300px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .promo-card h3 {
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+
+    .promo-card p {
+      color: #ddd;
+      font-size: 1em;
+      margin-bottom: 20px;
     }
 
     .btn-promo {
@@ -141,15 +154,12 @@
       border-radius: 8px;
       text-decoration: none;
       transition: 0.3s;
+      display: inline-block;
     }
 
     .btn-promo:hover {
       background-color: #ffcd39;
       transform: scale(1.05);
-    }
-
-    .promo-section strong {
-      color: #ffc107;
     }
   </style>
 </head>
@@ -167,6 +177,7 @@
           <li class="nav-item"><a class="nav-link" href="#inicial">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#AtletaNetao">Atleta Netão</a></li>
           <li class="nav-item"><a class="nav-link" href="#Tragetoria">Trajetória</a></li>
+          <li class="nav-item"><a class="nav-link" href="#patrocinadores">Patrocinadores</a></li>
           <li class="nav-item"><a class="nav-link" href="#metas">Lugares que Almejo</a></li>
         </ul>
       </div>
@@ -250,21 +261,25 @@
     </div>
   </section>
 
-  <!-- ✅ SEÇÃO PROMOCIONAL COM DOIS PATROCINADORES -->
-  <section class="promo-section container">
-    <h2>💥 Apoie o Atleta Netão e Melhore Seu Shape!</h2>
-    <p>Garanta seus suplementos com meus patrocinadores oficiais e utilize meus cupons exclusivos para descontos especiais 👇</p>
+  <!-- ✅ SEÇÃO PATROCINADORES -->
+  <section id="patrocinadores" class="promo-section container">
+    <h2>🔥 Patrocinadores Oficiais</h2>
+    <div class="promo-container">
 
-    <div class="promo-buttons">
-      <div>
-        <p><strong>GH Muscle</strong> — Use o cupom <strong>NETAO05</strong> e ganhe <strong>5% de desconto</strong> 💪</p>
+      <!-- GH Muscle -->
+      <div class="promo-card">
+        <h3>GH Muscle 💪</h3>
+        <p>Compre seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
         <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
       </div>
 
-      <div>
-        <p><strong>Atomic Labs</strong> — Use o cupom <strong>NETAO</strong> e ganhe <strong>10% de desconto</strong> ⚡</p>
+      <!-- Atomic Labs -->
+      <div class="promo-card">
+        <h3>Atomic Labs ⚡</h3>
+        <p>Ganhe <strong>10% de desconto</strong> em toda a loja com o cupom <strong>NETAO</strong>!</p>
         <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">🔥 Ir para Atomic Labs</a>
       </div>
+
     </div>
   </section>
 
