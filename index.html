@@ -126,7 +126,14 @@
       margin-bottom: 25px;
     }
 
-    .promo-section .btn-promo {
+    .promo-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .btn-promo {
       background-color: #ffc107;
       color: #000;
       font-weight: bold;
@@ -136,9 +143,13 @@
       transition: 0.3s;
     }
 
-    .promo-section .btn-promo:hover {
+    .btn-promo:hover {
       background-color: #ffcd39;
       transform: scale(1.05);
+    }
+
+    .promo-section strong {
+      color: #ffc107;
     }
   </style>
 </head>
@@ -239,11 +250,22 @@
     </div>
   </section>
 
-  <!-- ✅ NOVA SEÇÃO PROMOCIONAL (antes das metas) -->
+  <!-- ✅ SEÇÃO PROMOCIONAL COM DOIS PATROCINADORES -->
   <section class="promo-section container">
     <h2>💥 Apoie o Atleta Netão e Melhore Seu Shape!</h2>
-    <p>Garanta seus suplementos na <strong>GH Muscle</strong> e utilize o meu cupom exclusivo <strong>NETAO05</strong> para ganhar <span style="color:#ffc107;">um desconto especial</span> 💪</p>
-    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
+    <p>Garanta seus suplementos com meus patrocinadores oficiais e utilize meus cupons exclusivos para descontos especiais 👇</p>
+
+    <div class="promo-buttons">
+      <div>
+        <p><strong>GH Muscle</strong> — Use o cupom <strong>NETAO05</strong> e ganhe <strong>5% de desconto</strong> 💪</p>
+        <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
+      </div>
+
+      <div>
+        <p><strong>Atomic Labs</strong> — Use o cupom <strong>NETAO</strong> e ganhe <strong>10% de desconto</strong> ⚡</p>
+        <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">🔥 Ir para Atomic Labs</a>
+      </div>
+    </div>
   </section>
 
   <!-- Seção de Metas -->
