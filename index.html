@@ -27,7 +27,6 @@
       margin-right: 10px;
     }
 
-    /* ====== ESTILO DOS CARDS FLIP ====== */
     .flip-card {
       background-color: transparent;
       width: 180px;
@@ -79,7 +78,6 @@
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
 
-    /* ✅ Container horizontal fixo */
     .cards-container {
       display: flex;
       justify-content: center;
@@ -89,7 +87,6 @@
       flex-wrap: nowrap;
     }
 
-    /* Responsividade */
     @media (max-width: 768px) {
       .cards-container {
         flex-wrap: wrap;
@@ -106,6 +103,42 @@
 
     ul li {
       margin-bottom: 8px;
+    }
+
+    /* ====== ESTILO DO BOTÃO E SEÇÃO CUPOM ====== */
+    .promo-section {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
+      padding: 40px 20px;
+      margin-top: 40px;
+    }
+
+    .promo-section h2 {
+      color: #ffc107;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .promo-section p {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 25px;
+    }
+
+    .promo-section .btn-promo {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .promo-section .btn-promo:hover {
+      background-color: #ffcd39;
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -132,7 +165,6 @@
   <!-- Seção Inicial -->
   <section id="inicial" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Portfólio Netão</h1>
-   </p>
   </section>
 
   <!-- Seção Atleta -->
@@ -172,8 +204,6 @@
     <h1>Minha Trajetória</h1>
 
     <div class="cards-container mt-4">
-
-      <!-- Card 1 -->
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -185,7 +215,6 @@
         </div>
       </div>
 
-      <!-- Card 2 -->
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -197,7 +226,6 @@
         </div>
       </div>
 
-      <!-- Card 3 -->
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front">
@@ -208,7 +236,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -222,6 +249,13 @@
       <li><strong>FBBF Pro Card</strong> — o reconhecimento profissional nacional 🇧🇷</li>
       <li><strong>Classic Physique Elite</strong> — competir entre os grandes nomes 🌟</li>
     </ul>
+  </section>
+
+  <!-- ✅ NOVA SEÇÃO PROMOCIONAL -->
+  <section class="promo-section container">
+    <h2>💥 Apoie o Atleta Netão e Melhore Seu Shape!</h2>
+    <p>Garanta seus suplementos na <strong>GH Muscle</strong> e utilize o meu cupom exclusivo <strong>NETAO05</strong> para ganhar <span style="color:#ffc107;">desconto especial</span> 💪</p>
+    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">🛒 Ir para GH Muscle</a>
   </section>
 
   <!-- Rodapé -->
