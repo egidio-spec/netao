@@ -11,13 +11,13 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Ícones -->
+  <!-- Ícones Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
-    /* ===== FUNDO DE FUMAÇA ANIMADA ===== */
+    /* ===== FUNDO COM FUMAÇA ===== */
     body {
       margin: 0;
       background-color: #0d0d0d;
@@ -27,7 +27,6 @@
       scroll-behavior: smooth;
     }
 
-    /* Camada de fumaça em vídeo */
     #smoke-bg {
       position: fixed;
       top: 0;
@@ -36,18 +35,17 @@
       height: 100%;
       object-fit: cover;
       z-index: -2;
-      opacity: 0.3;
+      opacity: 0.35;
       filter: blur(3px) brightness(0.8);
     }
 
-    /* Gradiente suave sobre o vídeo */
     #overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(20,20,20,0.6));
+      background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(20,20,20,0.7));
       z-index: -1;
     }
 
@@ -85,8 +83,8 @@
       text-shadow: 2px 2px 20px rgba(255, 193, 7, 0.8);
     }
 
-    h1 { font-size: 3.5rem; text-align: center; }
-    h2 { font-size: 2.3rem; }
+    h1 { font-size: 3.5rem; text-align: center; margin-bottom: 30px; }
+    h2 { font-size: 2.3rem; text-align: center; }
 
     section {
       margin-top: 60px;
@@ -98,14 +96,13 @@
 
     /* ===== PARCERIAS ===== */
     #Parcerias .parceria {
-      display: flex;
-      flex-direction: row-reverse;
-      align-items: center;
-      justify-content: space-between;
+      text-align: center;
       background-color: rgba(20,20,20,0.8);
       border-radius: 15px;
-      padding: 30px;
-      margin: 30px 0;
+      padding: 40px 20px;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
       transition: 0.4s;
     }
 
@@ -114,13 +111,9 @@
       box-shadow: 0 0 25px rgba(255,193,7,0.4);
     }
 
-    #Parcerias .parceria h2 {
-      color: #ffc107;
-      margin-bottom: 10px;
-    }
-
-    #Parcerias .parceria p {
-      color: #ddd;
+    #Parcerias img {
+      width: 160px;
+      margin-bottom: 15px;
     }
 
     .btn-promo {
@@ -141,67 +134,38 @@
     }
 
     /* ===== REDES SOCIAIS ===== */
-    #RedesSociais .socials {
+    #RedesSociais .social-buttons {
       display: flex;
       justify-content: center;
-      gap: 60px;
-      margin-top: 50px;
-    }
-
-    #RedesSociais .socials a {
-      text-decoration: none;
-      color: #ffc107;
-      font-size: 3.5rem;
-      transition: 0.3s;
-    }
-
-    #RedesSociais .socials a:hover {
-      color: white;
-      text-shadow: 0 0 20px #ffc107;
-      transform: scale(1.2);
-    }
-
-    /* ===== FLIP CARDS ===== */
-    .flip-card {
-      background-color: transparent;
-      width: 200px;
-      height: 200px;
-      perspective: 1000px;
-      margin: 10px;
-    }
-
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
-
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      backface-visibility: hidden;
-    }
-
-    .flip-card-back { transform: rotateY(180deg); }
-
-    .cards-container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
       gap: 30px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      transition: 0.3s;
+      text-decoration: none;
+      min-width: 180px;
+    }
+
+    .social-btn i {
+      margin-right: 10px;
+      font-size: 1.5rem;
+    }
+
+    .social-btn:hover {
+      background-color: #ffcd39;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255,193,7,0.6);
     }
 
     footer {
@@ -285,37 +249,34 @@
     </div>
   </section>
 
-  <!-- Parcerias -->
-  <section id="Parcerias" class="container">
-    <h1 class="text-center mb-5">Parcerias</h1>
+  <!-- PARCERIAS -->
+  <section id="Parcerias" class="container text-center">
+    <h1>Parcerias</h1>
 
     <div class="parceria">
-      <div class="texto">
-        <h2>GH Muscle</h2>
-        <p>Ganhe <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>.</p>
-        <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
-      </div>
-      <img src="https://ghmuscle.com/cdn/shop/files/logo-ghmuscle.png?v=1689525454" width="160" alt="GH Muscle">
+      <img src="https://ghmuscle.com/cdn/shop/files/logo-ghmuscle.png?v=1689525454" alt="GH Muscle">
+      <h2>GH Muscle</h2>
+      <p>Ganhe <strong>5% de desconto</strong> com o cupom <strong>NETAO05</strong>.</p>
+      <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
     </div>
 
     <div class="parceria">
-      <div class="texto">
-        <h2>Atomic Labs</h2>
-        <p>Desconto de <strong>10%</strong> com o cupom <strong>NETAO</strong>.</p>
-        <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
-      </div>
-      <img src="https://atomiclabs.com.br/cdn/shop/files/ATOMICLABS-PRETO_180x.png?v=1685652660" width="160" alt="Atomic Labs">
+      <img src="https://atomiclabs.com.br/cdn/shop/files/ATOMICLABS-PRETO_180x.png?v=1685652660" alt="Atomic Labs">
+      <h2>Atomic Labs</h2>
+      <p>Desconto de <strong>10%</strong> com o cupom <strong>NETAO</strong>.</p>
+      <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
     </div>
   </section>
 
-  <!-- Redes Sociais -->
+  <!-- REDES SOCIAIS -->
   <section id="RedesSociais" class="container text-center">
     <h1>Redes Sociais</h1>
-    <p>Siga minha jornada e acompanhe minha evolução 🔥</p>
-    <div class="socials">
-      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.tiktok.com/@atleta.netao" target="_blank"><i class="fab fa-tiktok"></i></a>
-      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank"><i class="fab fa-youtube"></i></a>
+    <p>Siga minha jornada e acompanhe minha evolução 💪🔥</p>
+
+    <div class="social-buttons">
+      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
   </section>
 
