@@ -4,25 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Font Awesome (para ícones das redes) -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
     /* ===== FUNDO COM FUMAÇA ===== */
-    body {
-      background-color: #000;
-      color: white;
-      font-family: Arial, sans-serif;
-      overflow-x: hidden;
-      position: relative;
-    }
-
     video#smoke-bg {
       position: fixed;
       top: 0;
@@ -45,7 +34,12 @@
       z-index: -1;
     }
 
-    /* ===== NAVBAR ===== */
+    body {
+      color: white;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+
     .navbar img {
       width: 50px;
       height: 50px;
@@ -53,37 +47,14 @@
       margin-right: 10px;
     }
 
-    /* ===== SEÇÕES ===== */
-    section {
-      background-color: rgba(0, 0, 0, 0.8);
-      border-radius: 15px;
-      padding: 40px;
-      margin-top: 60px;
-    }
-
     h1, h2 {
-      text-align: center;
-      color: #ffc107;
+      font-family: 'Impact', sans-serif;
       font-weight: bold;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(255,193,7,0.6);
-    }
-
-    p {
-      color: #ddd;
       text-align: center;
+      margin-bottom: 20px;
     }
 
     /* ===== CARDS ===== */
-    .cards-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      text-align: center;
-      flex-wrap: wrap;
-    }
-
     .flip-card {
       background-color: transparent;
       width: 180px;
@@ -105,7 +76,8 @@
       transform: rotateY(180deg);
     }
 
-    .flip-card-front, .flip-card-back {
+    .flip-card-front,
+    .flip-card-back {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -118,43 +90,51 @@
       align-items: center;
       color: white;
       padding: 10px;
-      font-size: 0.9em;
+      font-size: 0.85em;
       backface-visibility: hidden;
     }
 
-    .flip-card-front {
-      font-weight: bold;
+    .flip-card-front { font-weight: bold; }
+    .flip-card-back { transform: rotateY(180deg); }
+    .flip-card:hover { box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      text-align: center;
+      flex-wrap: nowrap;
     }
 
-    .flip-card-back {
-      transform: rotateY(180deg);
+    @media (max-width: 768px) {
+      .cards-container { flex-wrap: wrap; }
     }
 
     /* ===== PARCERIAS ===== */
-    #Parcerias {
-      text-align: center;
-    }
-
-    .parcerias-container {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
     .sponsor-section {
+      text-align: center;
       background-color: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
-      padding: 40px 20px;
-      width: 300px;
-      transition: 0.3s ease;
-      box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
+      padding: 50px 20px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .sponsor-section:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
+    .sponsor-section h2 {
+      color: #ffc107;
+      font-weight: bold;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+
+    .sponsor-section p {
+      font-size: 1.1em;
+      color: #ddd;
+      margin-bottom: 10px;
     }
 
     .btn-promo {
@@ -166,7 +146,6 @@
       text-decoration: none;
       transition: 0.3s;
       display: inline-block;
-      margin-top: 10px;
     }
 
     .btn-promo:hover {
@@ -174,51 +153,33 @@
       transform: scale(1.05);
     }
 
-    /* ===== REDES SOCIAIS ===== */
-    #RedesSociais {
-      text-align: center;
-    }
-
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      margin-top: 30px;
-    }
-
-    .social-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #ffc107;
-      color: #000;
-      font-weight: bold;
-      padding: 12px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-btn i {
-      margin-right: 10px;
-      font-size: 1.4rem;
-    }
-
-    .social-btn:hover {
-      background-color: #ffcd39;
-      transform: scale(1.08);
-      box-shadow: 0 0 15px rgba(255,193,7,0.6);
-    }
+    /* ===== METAS ===== */
+    section ul li { margin-bottom: 8px; }
 
     footer {
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0, 0, 0, 0.8);
       text-align: center;
-      padding: 20px;
+      padding: 15px;
       color: #ccc;
-      margin-top: 50px;
+      margin-top: 40px;
     }
+
+    /* ===== REDES SOCIAIS ===== */
+    .social-buttons {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .social-buttons a {
+      display: inline-block;
+      margin: 0 15px;
+      font-size: 1.5em;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .social-buttons a:hover { color: #ffc107; }
+
   </style>
 </head>
 <body>
@@ -249,62 +210,78 @@
   </nav>
 
   <!-- Seção Inicial -->
-  <section id="inicial" class="container text-center">
+  <section id="inicial" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Portfólio Netão</h1>
   </section>
 
   <!-- Seção Atleta -->
-  <section id="AtletaNetao" class="container text-center">
+  <section id="AtletaNetao" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Atleta Netão</h1>
+
     <div id="demo" class="carousel slide mt-4" data-bs-ride="carousel">
-      <div class="carousel-inner rounded-3">
-        <div class="carousel-item active"><img src="netao 2.jpeg" class="d-block w-100"></div>
-        <div class="carousel-item"><img src="netao 1.jpeg" class="d-block w-100"></div>
-        <div class="carousel-item"><img src="netao 3.jpeg" class="d-block w-100"></div>
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
       </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="netao 2.jpeg" alt="Cbum e Ramon" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="netao 1.jpeg" alt="Jorlan" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="netao 3.jpeg" alt="Ramon e Cbum" class="d-block w-100">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
   </section>
 
-  <!-- Trajetória -->
-  <section id="Tragetoria" class="container text-center">
+  <!-- Seção Trajetória -->
+  <section id="Tragetoria" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Minha Trajetória</h1>
 
     <div class="cards-container mt-4">
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front"><p><strong>Quem sou eu</strong></p></div>
-          <div class="flip-card-back"><p>Sou Egidio, tenho 16 anos e vivo em busca de evolução, disciplina e superação diária.</p></div>
+          <div class="flip-card-back"><p>Sou <strong>Egidio</strong>, tenho <strong>16 anos</strong> e vivo em busca de evolução, disciplina e superação diária.</p></div>
         </div>
       </div>
-
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front"><p><strong>Minha Jornada</strong></p></div>
-          <div class="flip-card-back"><p>Com apenas 7 meses de treino, subi nos palcos das competições de fisiculturismo.</p></div>
+          <div class="flip-card-back"><p>Com apenas <strong>7 meses de treino</strong>, subi nos palcos das competições de <strong>fisiculturismo</strong>.</p></div>
         </div>
       </div>
-
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
           <div class="flip-card-front"><p><strong>Minha Conquista</strong></p></div>
-          <div class="flip-card-back"><p>Na estreia, conquistei o Top 5 na FBBF Brasil — categoria Classic Physique Juvenil 🏆</p></div>
+          <div class="flip-card-back"><p>Na estreia, conquistei o <strong>Top 5</strong> na <strong>FBBF Brasil</strong> — categoria <strong>Classic Physique Juvenil</strong> 🏆</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Parcerias -->
-  <section id="Parcerias" class="container text-center">
+  <!-- Seção Parcerias -->
+  <section id="Parcerias" class="container">
     <h1>Parcerias</h1>
-
-    <div class="parcerias-container">
-      <div class="sponsor-section">
+    <div class="sponsor-section">
+      <div>
         <h2>GH Muscle</h2>
         <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
         <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
       </div>
-
-      <div class="sponsor-section">
+      <div>
         <h2>Atomic Labs</h2>
         <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
         <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
@@ -312,11 +289,11 @@
     </div>
   </section>
 
-  <!-- Lugares que Almejo -->
-  <section id="metas" class="container text-center">
+  <!-- Seção Metas -->
+  <section id="metas" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Lugares que almejo alcançar</h1>
     <p>Com disciplina e foco total, sonho em alcançar os maiores palcos do fisiculturismo:</p>
-    <ul style="list-style: none; padding: 0; color: #fff;">
+    <ul>
       <li><strong>Mr. Olympia</strong> — o topo do mundo do fisiculturismo 🏆</li>
       <li><strong>Arnold Classic</strong> — onde os melhores se desafiam 💪</li>
       <li><strong>FBBF Pro Card</strong> — o reconhecimento profissional nacional 🇧🇷</li>
@@ -324,21 +301,11 @@
     </ul>
   </section>
 
-  <!-- Redes Sociais -->
-  <section id="RedesSociais" class="container text-center">
-    <h1>Redes Sociais</h1>
-    <p>Me acompanhe nas redes e veja minha evolução no fisiculturismo 💪🔥</p>
-    <div class="social-buttons">
-      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn">
-        <i class="fab fa-tiktok"></i> TikTok
-      </a>
-      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn">
-        <i class="fab fa-youtube"></i> YouTube
-      </a>
-    </div>
+  <!-- Seção Redes Sociais -->
+  <section id="RedesSociais" class="social-buttons">
+    <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank">YouTube</a>
+    <a href="https://www.tiktok.com/@atleta.netao" target="_blank">TikTok</a>
+    <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank">Instagram</a>
   </section>
 
   <!-- Rodapé -->
