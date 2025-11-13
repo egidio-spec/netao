@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Font Awesome para ícones -->
+  <!-- Font Awesome (para ícones das redes) -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <title>FISICULTURISTA NETÃO</title>
@@ -75,19 +74,86 @@
       text-align: center;
     }
 
-    /* ===== PARCERIAS ===== */
-    .sponsor-section {
+    /* ===== CARDS ===== */
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
       text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 180px;
+      height: 180px;
+      perspective: 1000px;
+      margin: 10px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 10px;
+      font-size: 0.9em;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-front {
+      font-weight: bold;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    /* ===== PARCERIAS ===== */
+    #Parcerias {
+      text-align: center;
+    }
+
+    .parcerias-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .sponsor-section {
       background-color: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
       padding: 40px 20px;
-      margin-top: 30px;
-      box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
-      transition: transform 0.3s ease;
+      width: 300px;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
     }
 
     .sponsor-section:hover {
-      transform: scale(1.02);
+      transform: scale(1.05);
       box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
     }
 
@@ -175,6 +241,7 @@
           <li class="nav-item"><a class="nav-link" href="#AtletaNetao">Atleta Netão</a></li>
           <li class="nav-item"><a class="nav-link" href="#Tragetoria">Trajetória</a></li>
           <li class="nav-item"><a class="nav-link" href="#Parcerias">Parcerias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#metas">Lugares que Almejo</a></li>
           <li class="nav-item"><a class="nav-link" href="#RedesSociais">Redes Sociais</a></li>
         </ul>
       </div>
@@ -201,30 +268,64 @@
   <!-- Trajetória -->
   <section id="Tragetoria" class="container text-center">
     <h1>Minha Trajetória</h1>
-    <p>Sou Egidio, 16 anos, atleta em constante evolução. Em apenas 7 meses de treino, conquistei o Top 5 na FBBF Brasil — Classic Physique Juvenil 🏆</p>
+
+    <div class="cards-container mt-4">
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><p><strong>Quem sou eu</strong></p></div>
+          <div class="flip-card-back"><p>Sou Egidio, tenho 16 anos e vivo em busca de evolução, disciplina e superação diária.</p></div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><p><strong>Minha Jornada</strong></p></div>
+          <div class="flip-card-back"><p>Com apenas 7 meses de treino, subi nos palcos das competições de fisiculturismo.</p></div>
+        </div>
+      </div>
+
+      <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+          <div class="flip-card-front"><p><strong>Minha Conquista</strong></p></div>
+          <div class="flip-card-back"><p>Na estreia, conquistei o Top 5 na FBBF Brasil — categoria Classic Physique Juvenil 🏆</p></div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Título Parcerias -->
+  <!-- Parcerias -->
   <section id="Parcerias" class="container text-center">
     <h1>Parcerias</h1>
+
+    <div class="parcerias-container">
+      <div class="sponsor-section">
+        <h2>GH Muscle</h2>
+        <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
+        <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
+      </div>
+
+      <div class="sponsor-section">
+        <h2>Atomic Labs</h2>
+        <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
+        <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
+      </div>
+    </div>
   </section>
 
-  <!-- GH Muscle -->
-  <section class="sponsor-section container">
-    <h2>GH Muscle</h2>
-    <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
-    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
-  </section>
-
-  <!-- Atomic Labs -->
-  <section class="sponsor-section container">
-    <h2>Atomic Labs</h2>
-    <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
-    <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
+  <!-- Lugares que Almejo -->
+  <section id="metas" class="container text-center">
+    <h1>Lugares que almejo alcançar</h1>
+    <p>Com disciplina e foco total, sonho em alcançar os maiores palcos do fisiculturismo:</p>
+    <ul style="list-style: none; padding: 0; color: #fff;">
+      <li><strong>Mr. Olympia</strong> — o topo do mundo do fisiculturismo 🏆</li>
+      <li><strong>Arnold Classic</strong> — onde os melhores se desafiam 💪</li>
+      <li><strong>FBBF Pro Card</strong> — o reconhecimento profissional nacional 🇧🇷</li>
+      <li><strong>Classic Physique Elite</strong> — competir entre os grandes nomes 🌟</li>
+    </ul>
   </section>
 
   <!-- Redes Sociais -->
-  <section id="RedesSociais" class="container">
+  <section id="RedesSociais" class="container text-center">
     <h1>Redes Sociais</h1>
     <p>Me acompanhe nas redes e veja minha evolução no fisiculturismo 💪🔥</p>
     <div class="social-buttons">
