@@ -14,7 +14,6 @@
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
-    /* Reset e fontes */
     body {
       margin: 0;
       padding: 0;
@@ -24,7 +23,7 @@
       position: relative;
     }
 
-    /* Fundo animado da página */
+    /* Fundo animado de fumaça */
     body::before {
       content: "";
       position: fixed;
@@ -32,9 +31,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('https://i.ibb.co/0F1zLzm/smoke.gif') center/cover no-repeat;
+      background: url('https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif') center/cover no-repeat;
       z-index: -1;
-      opacity: 0.7;
+      opacity: 0.6;
       animation: moveBg 30s linear infinite;
     }
 
@@ -44,19 +43,13 @@
       100% {transform: translate(0,0);}
     }
 
-    /* Estilo geral das seções com fundo destacado */
     .section-bg {
       position: relative;
       padding: 60px 20px;
       border-radius: 15px;
       margin-bottom: 40px;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.7);
       backdrop-filter: blur(5px);
-    }
-
-    /* Destaque específico para parcerias */
-    #parcerias {
-      background: linear-gradient(135deg, rgba(255, 193, 7, 0.7), rgba(255, 87, 34, 0.7));
     }
 
     h1, h2 {
@@ -71,7 +64,6 @@
       color: #fff;
     }
 
-    /* Flip Cards */
     .cards-container {
       display: flex;
       justify-content: center;
@@ -118,28 +110,29 @@
     .flip-card-front { font-weight: bold; }
     .flip-card-back { transform: rotateY(180deg); }
 
-    /* Parcerias */
+    /* Parcerias com fundo destacado */
     .sponsor-section {
       display: flex;
       justify-content: center;
-      gap: 50px;
+      gap: 30px;
       flex-wrap: wrap;
       margin-bottom: 40px;
+      background: linear-gradient(135deg, rgba(255,193,7,0.8), rgba(255,87,34,0.8));
+      padding: 40px;
+      border-radius: 15px;
     }
 
     .sponsor {
       flex: 1 1 250px;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0,0,0,0.5);
       border-radius: 12px;
       padding: 25px;
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.25);
     }
 
-    .sponsor h3 { color: #ffc107; margin-bottom: 15px; }
+    .sponsor h3 { color: #fff; margin-bottom: 15px; }
     .sponsor p { margin-bottom: 15px; }
 
-    /* Botões de redes sociais */
     .btn-social {
       padding: 12px 25px;
       border-radius: 8px;
@@ -154,9 +147,8 @@
     .btn-social:hover { transform: scale(1.05); }
     .btn-youtube { background-color: #FF0000; }
     .btn-tiktok { background-color: #000000; color: #fff; }
-    .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
-    /* Footer */
     footer {
       background-color: rgba(0,0,0,0.8);
       text-align: center;
@@ -164,6 +156,12 @@
       color: #ccc;
       margin-top: 40px;
     }
+
+    nav img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -171,7 +169,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
-      <img src="h.jpeg" alt="Logo" style="height:50px;">
+      <img src="https://via.placeholder.com/50x50.png?text=Logo" alt="Logo">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -203,9 +201,9 @@
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active"><img src="netao 2.jpeg" alt="Cbum e Ramon" class="d-block w-100"></div>
-        <div class="carousel-item"><img src="netao 1.jpeg" alt="Jorlan" class="d-block w-100"></div>
-        <div class="carousel-item"><img src="netao 3.jpeg" alt="Ramon e Cbum" class="d-block w-100"></div>
+        <div class="carousel-item active"><img src="https://via.placeholder.com/800x400.png?text=Netao+1" alt="Netao 1" class="d-block w-100"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x400.png?text=Netao+2" alt="Netao 2" class="d-block w-100"></div>
+        <div class="carousel-item"><img src="https://via.placeholder.com/800x400.png?text=Netao+3" alt="Netao 3" class="d-block w-100"></div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
