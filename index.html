@@ -17,28 +17,44 @@
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
-    /* ===== FUNDO ANIMADO ===== */
+    /* ===== FUNDO DE FUMAÇA ANIMADA ===== */
     body {
       margin: 0;
-      background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #212121, #111);
-      background-size: 400% 400%;
-      animation: gradientShift 10s ease infinite;
+      background-color: #0d0d0d;
       color: white;
+      font-family: 'Rajdhani', sans-serif;
       overflow-x: hidden;
       scroll-behavior: smooth;
-      font-family: 'Rajdhani', sans-serif;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    /* Camada de fumaça em vídeo */
+    #smoke-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.3;
+      filter: blur(3px) brightness(0.8);
+    }
+
+    /* Gradiente suave sobre o vídeo */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(20,20,20,0.6));
+      z-index: -1;
     }
 
     /* ===== NAVBAR ===== */
     .navbar {
-      background: rgba(0,0,0,0.85);
-      box-shadow: 0 0 15px rgba(255,193,7,0.3);
+      background: rgba(0, 0, 0, 0.85);
+      box-shadow: 0 0 20px rgba(255,193,7,0.3);
     }
 
     .navbar img {
@@ -63,23 +79,14 @@
     /* ===== TÍTULOS ===== */
     h1, h2 {
       font-family: 'Bebas Neue', sans-serif;
-      text-align: center;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #ffc107;
       text-shadow: 2px 2px 20px rgba(255, 193, 7, 0.8);
-      margin-bottom: 25px;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeUp 1s ease forwards;
     }
 
-    h1 { font-size: 3.5rem; }
-    h2 { font-size: 2.4rem; }
-
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
+    h1 { font-size: 3.5rem; text-align: center; }
+    h2 { font-size: 2.3rem; }
 
     section {
       margin-top: 60px;
@@ -87,14 +94,74 @@
       background-color: rgba(0,0,0,0.75);
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255,193,7,0.2);
-      animation: fadeSection 1.2s ease forwards;
-      opacity: 0;
     }
 
-    @keyframes fadeSection {
-      to { opacity: 1; }
+    /* ===== PARCERIAS ===== */
+    #Parcerias .parceria {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      justify-content: space-between;
+      background-color: rgba(20,20,20,0.8);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 30px 0;
+      transition: 0.4s;
     }
 
+    #Parcerias .parceria:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255,193,7,0.4);
+    }
+
+    #Parcerias .parceria h2 {
+      color: #ffc107;
+      margin-bottom: 10px;
+    }
+
+    #Parcerias .parceria p {
+      color: #ddd;
+    }
+
+    .btn-promo {
+      background-color: #ffc107;
+      color: #000;
+      font-weight: bold;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    .btn-promo:hover {
+      background-color: #ffcd39;
+      transform: scale(1.05);
+    }
+
+    /* ===== REDES SOCIAIS ===== */
+    #RedesSociais .socials {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 50px;
+    }
+
+    #RedesSociais .socials a {
+      text-decoration: none;
+      color: #ffc107;
+      font-size: 3.5rem;
+      transition: 0.3s;
+    }
+
+    #RedesSociais .socials a:hover {
+      color: white;
+      text-shadow: 0 0 20px #ffc107;
+      transform: scale(1.2);
+    }
+
+    /* ===== FLIP CARDS ===== */
     .flip-card {
       background-color: transparent;
       width: 200px;
@@ -137,42 +204,6 @@
       gap: 30px;
     }
 
-    .btn-promo {
-      background-color: #ffc107;
-      color: #000;
-      font-weight: bold;
-      padding: 12px 30px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn-promo:hover {
-      background-color: #ffcd39;
-      transform: scale(1.05);
-    }
-
-    /* ===== REDES SOCIAIS ===== */
-    .socials {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .socials a {
-      text-decoration: none;
-      color: #ffc107;
-      font-size: 3rem;
-      transition: 0.3s;
-    }
-
-    .socials a:hover {
-      color: white;
-      text-shadow: 0 0 15px #ffc107;
-      transform: scale(1.2);
-    }
-
     footer {
       background-color: rgba(0, 0, 0, 0.9);
       text-align: center;
@@ -186,7 +217,13 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- Fundo com fumaça -->
+  <video autoplay muted loop id="smoke-bg">
+    <source src="https://cdn.pixabay.com/video/2020/07/10/44816-438598674_large.mp4" type="video/mp4">
+  </video>
+  <div id="overlay"></div>
+
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
     <div class="container-fluid">
       <img src="h.jpeg" alt="Logo">
@@ -205,13 +242,13 @@
     </div>
   </nav>
 
-  <!-- INICIAL -->
+  <!-- Seção Inicial -->
   <section id="inicial" class="container text-center">
     <h1>Portfólio Netão</h1>
-    <p class="lead">Disciplina, foco e superação. O corpo reflete o que a mente acredita. 🏋️‍♂️</p>
+    <p class="lead">Disciplina, foco e superação — o corpo reflete o que a mente acredita 🏋️‍♂️</p>
   </section>
 
-  <!-- ATLETA -->
+  <!-- Seção Atleta -->
   <section id="AtletaNetao" class="container text-center">
     <h1>Atleta Netão</h1>
     <div id="demo" class="carousel slide mt-4" data-bs-ride="carousel">
@@ -223,7 +260,7 @@
     </div>
   </section>
 
-  <!-- TRAJETÓRIA -->
+  <!-- Seção Trajetória -->
   <section id="Tragetoria" class="container text-center">
     <h1>Minha Trajetória</h1>
     <div class="cards-container">
@@ -248,24 +285,33 @@
     </div>
   </section>
 
-  <!-- PARCERIAS -->
-  <section id="Parcerias" class="container text-center">
-    <h1>Parcerias</h1>
-    <h2>GH Muscle</h2>
-    <p>5% de desconto com o cupom <strong>NETAO05</strong></p>
-    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
+  <!-- Parcerias -->
+  <section id="Parcerias" class="container">
+    <h1 class="text-center mb-5">Parcerias</h1>
 
-    <hr class="my-4" style="border-color:#ffc107;">
+    <div class="parceria">
+      <div class="texto">
+        <h2>GH Muscle</h2>
+        <p>Ganhe <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>.</p>
+        <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
+      </div>
+      <img src="https://ghmuscle.com/cdn/shop/files/logo-ghmuscle.png?v=1689525454" width="160" alt="GH Muscle">
+    </div>
 
-    <h2>Atomic Labs</h2>
-    <p>10% de desconto com o cupom <strong>NETAO</strong></p>
-    <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
+    <div class="parceria">
+      <div class="texto">
+        <h2>Atomic Labs</h2>
+        <p>Desconto de <strong>10%</strong> com o cupom <strong>NETAO</strong>.</p>
+        <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
+      </div>
+      <img src="https://atomiclabs.com.br/cdn/shop/files/ATOMICLABS-PRETO_180x.png?v=1685652660" width="160" alt="Atomic Labs">
+    </div>
   </section>
 
-  <!-- REDES SOCIAIS -->
+  <!-- Redes Sociais -->
   <section id="RedesSociais" class="container text-center">
     <h1>Redes Sociais</h1>
-    <p>Siga minhas redes e acompanhe minha jornada 💪🔥</p>
+    <p>Siga minha jornada e acompanhe minha evolução 🔥</p>
     <div class="socials">
       <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank"><i class="fab fa-instagram"></i></a>
       <a href="https://www.tiktok.com/@atleta.netao" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -273,7 +319,7 @@
     </div>
   </section>
 
-  <!-- RODAPÉ -->
+  <!-- Rodapé -->
   <footer>
     <p>© 2025 Egidio "Netão" — Todos os direitos reservados.</p>
   </footer>
