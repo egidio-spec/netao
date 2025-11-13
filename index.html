@@ -18,9 +18,8 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('r.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      color: yellow;
+      background: linear-gradient(120deg, #000000, #1a1a1a);
+      color: white;
       min-height: 100vh;
       position: relative;
       overflow-x: hidden;
@@ -32,7 +31,7 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: url('https://i.ibb.co/3Fv2fVv/smoke.gif') repeat;
-      opacity: 0.3;
+      opacity: 0.2;
       z-index: 0;
     }
 
@@ -41,8 +40,19 @@
     .navbar-nav .nav-link { color: yellow !important; }
 
     /* Flip Cards */
-    .flip-card { background-color: transparent; width: 180px; height: 180px; perspective: 1000px; margin: 10px; }
-    .flip-card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+    .flip-card {
+      background-color: transparent;
+      width: 180px; height: 180px;
+      perspective: 1000px;
+      margin: 10px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
     .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
     .flip-card-front, .flip-card-back {
       position: absolute;
@@ -53,35 +63,45 @@
       display: flex; flex-direction: column; justify-content: center; align-items: center;
       font-size: 0.85em;
       backface-visibility: hidden;
-      color: yellow;
+      color: white;
       padding: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .flip-card-front:hover, .flip-card-back:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px yellow;
     }
     .flip-card-back { transform: rotateY(180deg); }
-    .flip-card:hover { box-shadow: 0 0 15px yellow; }
 
     .cards-container { display: flex; justify-content: center; align-items: center; gap: 30px; text-align: center; flex-wrap: wrap; }
 
     /* Parcerias */
-    .sponsor-section { text-align:center; background-color: rgba(0,0,0,0.8); border-radius:12px; padding:30px 20px; margin-top:40px; color: yellow; }
+    .sponsor-section { text-align:center; background-color: rgba(0,0,0,0.8); border-radius:12px; padding:30px 20px; margin-top:40px; }
     .sponsor-section h2 { color: yellow; font-weight: bold; margin-bottom:15px; }
+    .sponsor-section p { color: white; }
     .btn-promo { background-color: yellow; color: black; font-weight: bold; padding:10px 20px; border-radius:8px; text-decoration:none; margin:5px; display:inline-block; transition:0.3s; }
     .btn-promo:hover { background-color:#ffcd39; transform: scale(1.05); }
 
     /* Redes sociais */
     .social-section { text-align:center; margin:50px 0; }
     .social-section h2 { color: yellow; margin-bottom:20px; }
-    .social-btn { background-color: yellow; color: black; padding:12px 25px; margin:5px; border-radius:8px; font-weight:bold; text-decoration:none; display:inline-block; transition:0.3s; }
-    .social-btn:hover { background-color:#ffcd39; transform: scale(1.05); }
+    .social-btn {
+      padding:12px 25px; margin:5px; border-radius:8px; font-weight:bold; text-decoration:none; display:inline-block; transition:0.3s; color: white;
+    }
+    .social-btn.youtube { background-color: #FF0000; }
+    .social-btn.tiktok { background-color: #000000; color: #00F2EA; }
+    .social-btn.instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+    .social-btn:hover { transform: scale(1.05); opacity: 0.9; }
 
-    /* Lugares que almejo */
-    #metas ul li { margin-bottom:10px; }
+    /* Lugares que Almejo */
+    #metas h1 { color: yellow; }
+    #metas ul li { margin-bottom:10px; color:white; }
 
     /* Rodapé */
-    footer { background-color: rgba(0,0,0,0.8); text-align:center; padding:15px; color: yellow; margin-top:40px; }
+    footer { background-color: rgba(0,0,0,0.8); text-align:center; padding:15px; color: white; margin-top:40px; }
 
-    /* Containers */
+    /* Seções */
     section { position: relative; z-index: 1; }
-
   </style>
 </head>
 <body>
@@ -107,13 +127,13 @@
   </nav>
 
   <!-- Seção Inicial -->
-  <section id="inicial" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
-    <h1>Portfólio Netão</h1>
+  <section id="inicial" class="container pt-5 my-5 bg-dark rounded-3 p-4">
+    <h1 style="color:yellow;">Portfólio Netão</h1>
   </section>
 
   <!-- Seção Atleta -->
-  <section id="AtletaNetao" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
-    <h1>Atleta Netão</h1>
+  <section id="AtletaNetao" class="container pt-5 my-5 bg-dark rounded-3 p-4">
+    <h1 style="color:yellow;">Atleta Netão</h1>
     <div id="demo" class="carousel slide mt-4" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
@@ -141,8 +161,8 @@
   </section>
 
   <!-- Seção Trajetória -->
-  <section id="Tragetoria" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
-    <h1>Minha Trajetória</h1>
+  <section id="Tragetoria" class="container pt-5 my-5 bg-dark rounded-3 p-4">
+    <h1 style="color:yellow;">Minha Trajetória</h1>
     <div class="cards-container mt-4">
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
@@ -167,7 +187,7 @@
 
   <!-- Seção Parcerias -->
   <section id="parcerias" class="container">
-    <h1 class="text-center">Parcerias</h1>
+    <h1 class="text-center" style="color:yellow;">Parcerias</h1>
     <div class="d-flex justify-content-center flex-wrap mt-4 gap-3">
       <div class="sponsor-section">
         <h2>GH Muscle</h2>
@@ -185,14 +205,14 @@
   <!-- Redes Sociais -->
   <section id="socials" class="social-section">
     <h2>Redes Sociais</h2>
-    <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
-    <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
-    <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
+    <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i> YouTube</a>
+    <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn tiktok"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i> Instagram</a>
   </section>
 
   <!-- Lugares que Almejo -->
-  <section id="metas" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
-    <h1>Lugares que almejo alcançar</h1>
+  <section id="metas" class="container pt-5 my-5 bg-dark rounded-3 p-4">
+    <h1 style="color:yellow;">Lugares que almejo alcançar</h1>
     <p>Com disciplina e foco total, sonho em alcançar os maiores palcos do fisiculturismo:</p>
     <ul>
       <li><strong>Mr. Olympia</strong> 🏆</li>
