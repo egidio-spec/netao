@@ -6,23 +6,31 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Fonte chamativa para títulos -->
+  <!-- Fonte de título -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
+    /* ===== FUNDO DINÂMICO ===== */
     body {
-      background-image: url('r.jpeg');
-      background-size: cover;
-      background-position: center;
+      background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #2b2b2b, #000);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
       color: white;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== NAVBAR ===== */
     .navbar img {
       width: 50px;
       height: 50px;
@@ -30,23 +38,39 @@
       margin-right: 10px;
     }
 
-    /* ======== ESTILO DOS TÍTULOS ======== */
+    /* ===== TÍTULOS ===== */
     h1, h2 {
       font-family: 'Bebas Neue', sans-serif;
       text-align: center;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #ffc107;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
       margin-bottom: 25px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 1s ease forwards;
     }
 
-    h1 {
-      font-size: 3rem;
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.2rem; }
+
+    /* ===== ANIMAÇÃO DOS TÍTULOS ===== */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    h2 {
-      font-size: 2.2rem;
+    /* ===== CONTEÚDO ===== */
+    section {
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
     .flip-card {
@@ -76,7 +100,7 @@
       width: 100%;
       height: 100%;
       border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.25);
       display: flex;
       flex-direction: column;
@@ -88,16 +112,13 @@
       backface-visibility: hidden;
     }
 
-    .flip-card-front {
-      font-weight: bold;
-    }
-
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
+    .flip-card-front { font-weight: bold; }
+    .flip-card-back { transform: rotateY(180deg); }
 
     .flip-card:hover {
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+      transform: scale(1.05);
+      transition: 0.3s;
     }
 
     .cards-container {
@@ -105,41 +126,29 @@
       justify-content: center;
       align-items: center;
       gap: 30px;
+      flex-wrap: wrap;
       text-align: center;
-      flex-wrap: nowrap;
     }
 
-    @media (max-width: 768px) {
-      .cards-container {
-        flex-wrap: wrap;
-      }
+    /* ===== SEÇÕES ===== */
+    .container.bg-dark {
+      background-color: rgba(0, 0, 0, 0.75) !important;
+      box-shadow: 0 0 25px rgba(255, 193, 7, 0.15);
     }
 
-    footer {
-      background-color: rgba(0, 0, 0, 0.8);
-      text-align: center;
-      padding: 15px;
-      color: #ccc;
-      margin-top: 40px;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    /* ====== ESTILO DAS PARCERIAS ====== */
     .sponsor-section {
       text-align: center;
       background-color: rgba(0, 0, 0, 0.85);
       border-radius: 12px;
       padding: 50px 20px;
       margin-top: 40px;
+      box-shadow: 0 0 20px rgba(255, 193, 7, 0.15);
+      transition: 0.4s;
     }
 
-    .sponsor-section p {
-      font-size: 1.1em;
-      color: #ddd;
-      margin-bottom: 25px;
+    .sponsor-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
     }
 
     .btn-promo {
@@ -158,7 +167,15 @@
       transform: scale(1.05);
     }
 
-    /* Rolagem suave */
+    footer {
+      background-color: rgba(0, 0, 0, 0.85);
+      text-align: center;
+      padding: 15px;
+      color: #ccc;
+      margin-top: 40px;
+      box-shadow: inset 0 0 10px rgba(255, 193, 7, 0.2);
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -167,7 +184,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <div class="container-fluid">
       <img src="h.jpeg" alt="Logo">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -188,6 +205,7 @@
   <!-- Seção Inicial -->
   <section id="inicial" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Portfólio Netão</h1>
+    <p class="text-center">Foco. Disciplina. Superação. O palco é meu próximo destino. 💪</p>
   </section>
 
   <!-- Seção Atleta -->
@@ -195,13 +213,7 @@
     <h1>Atleta Netão</h1>
 
     <div id="demo" class="carousel slide mt-4" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      </div>
-
-      <div class="carousel-inner">
+      <div class="carousel-inner rounded-3">
         <div class="carousel-item active">
           <img src="netao 2.jpeg" alt="Cbum e Ramon" class="d-block w-100">
         </div>
@@ -262,29 +274,28 @@
     </div>
   </section>
 
-  <!-- ✅ Seção Parcerias -->
+  <!-- Seção Parcerias -->
   <section id="Parcerias" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4 text-center">
     <h1>Parcerias</h1>
   </section>
 
-  <!-- ✅ Parceria GH Muscle -->
+  <!-- Parceria GH Muscle -->
   <section class="sponsor-section container">
     <h2>GH Muscle</h2>
     <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
     <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
   </section>
 
-  <!-- ✅ Parceria Atomic Labs -->
+  <!-- Parceria Atomic Labs -->
   <section class="sponsor-section container">
     <h2>Atomic Labs</h2>
     <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
     <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
   </section>
 
-  <!-- Seção de Metas -->
+  <!-- Metas -->
   <section id="metas" class="container pt-5 my-5 bg-dark text-white rounded-3 p-4">
     <h1>Lugares que almejo alcançar</h1>
-    <p>Com disciplina e foco total, sonho em alcançar os maiores palcos do fisiculturismo:</p>
     <ul>
       <li><strong>Mr. Olympia</strong> — o topo do mundo do fisiculturismo 🏆</li>
       <li><strong>Arnold Classic</strong> — onde os melhores se desafiam 💪</li>
@@ -293,7 +304,6 @@
     </ul>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 Egidio "Netão" — Todos os direitos reservados.</p>
   </footer>
