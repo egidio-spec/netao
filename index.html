@@ -20,7 +20,7 @@
       font-family: Arial, sans-serif;
       color: white;
       overflow-x: hidden;
-      background-color: #555555; /* Fundo da página: cinza médio-escuro */
+      background-color: #555555; /* Fundo cinza médio-escuro */
     }
 
     /* Seções com fundo mais escuro para destacar */
@@ -29,7 +29,14 @@
       padding: 60px 20px;
       border-radius: 15px;
       margin-bottom: 40px;
-      background-color: #333333; /* Fundo mais escuro */
+      background-color: #222222; /* Fundo cinza escuro */
+      border: 2px solid silver;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .section-bg:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px silver;
     }
 
     h1, h2 {
@@ -76,7 +83,7 @@
       position: absolute;
       width: 100%; height: 100%;
       border-radius: 12px;
-      background-color: #333333; /* Fundo da seção mais escuro */
+      background-color: #222222; /* Fundo cinza escuro das cartas */
       border: 2px solid silver;
       display: flex;
       justify-content: center;
@@ -85,12 +92,18 @@
       text-align: center;
       padding: 10px;
       font-size: 0.85em;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .flip-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px silver;
     }
 
     .flip-card-front { font-weight: bold; }
     .flip-card-back { transform: rotateY(180deg); }
 
-    /* Parcerias com mesmo fundo mais escuro */
+    /* Parcerias */
     .sponsor-section {
       display: flex;
       justify-content: center;
@@ -101,7 +114,7 @@
 
     .sponsor {
       flex: 1 1 250px;
-      background-color: #333333; /* Fundo mais escuro */
+      background-color: #222222; /* Fundo cinza escuro */
       border-radius: 12px;
       padding: 25px;
       text-align: center;
@@ -145,6 +158,7 @@
       height: 50px;
       margin-right: 10px;
     }
+
   </style>
 </head>
 <body>
