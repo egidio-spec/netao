@@ -3,65 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FISICULTURISTA NETÃO</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Google Fonts -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
 
+  <title>FISICULTURISTA NETÃO</title>
+
   <style>
-    /* ====== FONTE ====== */
-    h1, h2, .flip-card-front p {
-      font-family: 'Oswald', sans-serif;
-      color: #ffc107; /* amarelo apenas nos títulos grandes */
-    }
-
-    body, p, ul li {
-      font-family: Arial, sans-serif;
-      color: white; /* textos brancos */
-    }
-
-    /* ====== FUNDO ANIMADO ====== */
     body {
       margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(270deg, #0f0c29, #302b63, #24243e);
-      background-size: 600% 600%;
-      animation: GradientAnimation 20s ease infinite;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow-x: hidden;
     }
 
-    @keyframes GradientAnimation {
-      0% {background-position:0% 50%;}
-      50% {background-position:100% 50%;}
-      100% {background-position:0% 50%;}
+    /* Fundo animado */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.ibb.co/0F1zLzm/smoke.gif') center/cover no-repeat;
+      z-index: -1;
+      opacity: 0.6;
+      animation: moveBg 30s linear infinite;
     }
 
-    /* ====== NAVBAR ====== */
-    .navbar img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      margin-right: 10px;
+    @keyframes moveBg {
+      0% {transform: translate(0,0);}
+      50% {transform: translate(-50px,50px);}
+      100% {transform: translate(0,0);}
     }
 
-    /* ====== SEÇÕES ====== */
-    section {
-      padding: 50px 20px;
-      margin: 30px auto;
+    .section-bg {
+      position: relative;
+      padding: 60px 20px;
       border-radius: 15px;
-      background-color: rgba(0, 0, 0, 0.7);
+      margin-bottom: 40px;
+      background-color: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
     }
 
-    /* ====== CARDS ====== */
+    h1, h2 {
+      color: #ffc107;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    p, li {
+      color: #fff;
+    }
+
+    .cards-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
     .flip-card {
       background-color: transparent;
       width: 180px;
       height: 180px;
       perspective: 1000px;
       margin: 10px;
+      cursor: pointer;
     }
 
     .flip-card-inner {
@@ -70,87 +85,71 @@
       height: 100%;
       transition: transform 0.8s ease-in-out;
       transform-style: preserve-3d;
-      cursor: pointer;
     }
 
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 
-    .flip-card-front,
-    .flip-card-back {
+    .flip-card-front, .flip-card-back {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       border-radius: 12px;
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+      background-color: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: white;
+      backface-visibility: hidden;
+      text-align: center;
       padding: 10px;
       font-size: 0.85em;
-      backface-visibility: hidden;
     }
 
-    .flip-card-front {
-      font-weight: bold;
-    }
+    .flip-card-front { font-weight: bold; }
+    .flip-card-back { transform: rotateY(180deg); }
 
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card:hover {
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    }
-
-    .cards-container {
+    /* Parcerias separadas */
+    .sponsor-section {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 30px;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .sponsor {
+      flex: 1 1 250px;
+      background-color: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 25px;
       text-align: center;
-      flex-wrap: nowrap;
     }
 
-    @media (max-width: 768px) {
-      .cards-container {
-        flex-wrap: wrap;
-      }
-    }
+    .sponsor h3 { color: #ffc107; margin-bottom: 15px; }
+    .sponsor p { margin-bottom: 15px; }
 
-    /* ====== BOTÕES DE REDES SOCIAIS ====== */
-    .social-btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 5px;
+    .btn-social {
+      padding: 12px 25px;
       border-radius: 8px;
       font-weight: bold;
-      color: white;
+      margin: 5px;
+      color: #fff;
       text-decoration: none;
-      transition: 0.3s;
+      display: inline-block;
+      transition: transform 0.3s;
     }
 
-    .social-btn:hover {
-      transform: scale(1.05);
-    }
-
+    .btn-social:hover { transform: scale(1.05); }
     .btn-youtube { background-color: #FF0000; }
-    .btn-tiktok { background-color: #69C9D0; }
+    .btn-tiktok { background-color: #000000; color: #fff; }
     .btn-instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
-    /* ====== RODAPÉ ====== */
     footer {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0,0,0,0.8);
       text-align: center;
       padding: 15px;
       color: #ccc;
       margin-top: 40px;
     }
-
   </style>
 </head>
 <body>
@@ -168,20 +167,20 @@
           <li class="nav-item"><a class="nav-link" href="#AtletaNetao">Atleta Netão</a></li>
           <li class="nav-item"><a class="nav-link" href="#Tragetoria">Trajetória</a></li>
           <li class="nav-item"><a class="nav-link" href="#parcerias">Parcerias</a></li>
-          <li class="nav-item"><a class="nav-link" href="#redesSociais">Redes Sociais</a></li>
+          <li class="nav-item"><a class="nav-link" href="#redes">Redes Sociais</a></li>
           <li class="nav-item"><a class="nav-link" href="#metas">Lugares que Almejo</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Seção Inicial -->
-  <section id="inicial">
+  <!-- Inicial -->
+  <section id="inicial" class="container section-bg">
     <h1>Portfólio Netão</h1>
   </section>
 
-  <!-- Seção Atleta -->
-  <section id="AtletaNetao">
+  <!-- Atleta -->
+  <section id="AtletaNetao" class="container section-bg">
     <h1>Atleta Netão</h1>
     <div id="demo" class="carousel slide mt-4" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -190,15 +189,9 @@
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
       </div>
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="netao 2.jpeg" alt="Cbum e Ramon" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-          <img src="netao 1.jpeg" alt="Jorlan" class="d-block w-100">
-        </div>
-        <div class="carousel-item">
-          <img src="netao 3.jpeg" alt="Ramon e Cbum" class="d-block w-100">
-        </div>
+        <div class="carousel-item active"><img src="netao 2.jpeg" alt="Cbum e Ramon" class="d-block w-100"></div>
+        <div class="carousel-item"><img src="netao 1.jpeg" alt="Jorlan" class="d-block w-100"></div>
+        <div class="carousel-item"><img src="netao 3.jpeg" alt="Ramon e Cbum" class="d-block w-100"></div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
@@ -209,82 +202,69 @@
     </div>
   </section>
 
-  <!-- Seção Trajetória -->
-  <section id="Tragetoria">
+  <!-- Trajetória -->
+  <section id="Tragetoria" class="container section-bg">
     <h1>Minha Trajetória</h1>
     <div class="cards-container mt-4">
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p><strong>Quem sou eu</strong></p>
-          </div>
-          <div class="flip-card-back">
-            <p>Sou <strong>Egidio</strong>, tenho <strong>16 anos</strong> e vivo em busca de evolução, disciplina e superação diária.</p>
-          </div>
+          <div class="flip-card-front"><p><strong>Quem sou eu</strong></p></div>
+          <div class="flip-card-back"><p>Sou <strong>Egidio</strong>, tenho <strong>16 anos</strong> e vivo em busca de evolução, disciplina e superação diária.</p></div>
         </div>
       </div>
+
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p><strong>Minha Jornada</strong></p>
-          </div>
-          <div class="flip-card-back">
-            <p>Com apenas <strong>7 meses de treino</strong>, subi nos palcos das competições de <strong>fisiculturismo</strong>.</p>
-          </div>
+          <div class="flip-card-front"><p><strong>Minha Jornada</strong></p></div>
+          <div class="flip-card-back"><p>Com apenas <strong>7 meses de treino</strong>, subi nos palcos das competições de <strong>fisiculturismo</strong>.</p></div>
         </div>
       </div>
+
       <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <p><strong>Minha Conquista</strong></p>
-          </div>
-          <div class="flip-card-back">
-            <p>Na estreia, conquistei o <strong>Top 5</strong> na <strong>FBBF Brasil</strong> — categoria <strong>Classic Physique Juvenil</strong> 🏆</p>
-          </div>
+          <div class="flip-card-front"><p><strong>Minha Conquista</strong></p></div>
+          <div class="flip-card-back"><p>Na estreia, conquistei o <strong>Top 5</strong> na <strong>FBBF Brasil</strong> — categoria <strong>Classic Physique Juvenil</strong> 🏆</p></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Seção Parcerias -->
-  <section id="parcerias">
+  <!-- Parcerias -->
+  <section id="parcerias" class="container">
     <h1>Parcerias</h1>
-    <div class="d-flex justify-content-center flex-wrap gap-4 mt-4">
-      <div class="sponsor-section p-4" style="flex:1; min-width:250px; text-align:center;">
-        <h2>GH Muscle</h2>
+    <div class="sponsor-section">
+      <div class="sponsor">
+        <h3>GH Muscle</h3>
         <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
-        <a href="https://ghmuscle.com" target="_blank" class="btn btn-warning text-dark">Ir para GH Muscle</a>
+        <a href="https://ghmuscle.com" target="_blank" class="btn btn-warning">Ir para GH Muscle</a>
       </div>
-      <div class="sponsor-section p-4" style="flex:1; min-width:250px; text-align:center;">
-        <h2>Atomic Labs</h2>
+      <div class="sponsor">
+        <h3>Atomic Labs</h3>
         <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
-        <a href="https://atomiclabs.com.br" target="_blank" class="btn btn-warning text-dark">Ir para Atomic Labs</a>
+        <a href="https://atomiclabs.com.br" target="_blank" class="btn btn-warning">Ir para Atomic Labs</a>
       </div>
     </div>
   </section>
 
-  <!-- Seção Redes Sociais -->
-  <section id="redesSociais">
+  <!-- Redes Sociais -->
+  <section id="redes" class="container section-bg text-center">
     <h1>Redes Sociais</h1>
-    <div class="text-center mt-4">
-      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn btn-youtube">YouTube</a>
-      <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn btn-tiktok">TikTok</a>
-      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn btn-instagram">Instagram</a>
-    </div>
+    <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="btn-social btn-youtube">YouTube</a>
+    <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="btn-social btn-tiktok">TikTok</a>
+    <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="btn-social btn-instagram">Instagram</a>
   </section>
 
-  <!-- Seção de Metas -->
-  <section id="metas">
+  <!-- Lugares que almejo -->
+  <section id="metas" class="container section-bg">
     <h1>Lugares que almejo alcançar</h1>
     <ul>
       <li><strong>Mr. Olympia</strong> — o topo do mundo do fisiculturismo 🏆</li>
       <li><strong>Arnold Classic</strong> — onde os melhores se desafiam 💪</li>
-      <li><strong>FBBF Pro Card</strong> — o reconhecimento profissional nacional 🇧🇷</li>
+      <li><strong>FBBF Pro Card</strong> — reconhecimento profissional nacional 🇧🇷</li>
       <li><strong>Classic Physique Elite</strong> — competir entre os grandes nomes 🌟</li>
     </ul>
   </section>
 
-  <!-- Rodapé -->
   <footer>
     <p>© 2025 Egidio "Netão" — Todos os direitos reservados.</p>
   </footer>
