@@ -4,14 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Ícones Font Awesome -->
+  <!-- Font Awesome para ícones -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
   <title>FISICULTURISTA NETÃO</title>
@@ -19,101 +17,78 @@
   <style>
     /* ===== FUNDO COM FUMAÇA ===== */
     body {
-      margin: 0;
-      background-color: #0d0d0d;
+      background-color: #000;
       color: white;
-      font-family: 'Rajdhani', sans-serif;
+      font-family: Arial, sans-serif;
       overflow-x: hidden;
-      scroll-behavior: smooth;
+      position: relative;
     }
 
-    #smoke-bg {
+    video#smoke-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.3;
       z-index: -2;
-      opacity: 0.35;
-      filter: blur(3px) brightness(0.8);
     }
 
-    #overlay {
+    body::before {
+      content: "";
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(0,0,0,0.9), rgba(20,20,20,0.7));
+      background: radial-gradient(circle at center, rgba(0,0,0,0.4), rgba(0,0,0,0.8));
       z-index: -1;
     }
 
     /* ===== NAVBAR ===== */
-    .navbar {
-      background: rgba(0, 0, 0, 0.85);
-      box-shadow: 0 0 20px rgba(255,193,7,0.3);
-    }
-
     .navbar img {
-      width: 55px;
-      height: 55px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       margin-right: 10px;
     }
 
-    .navbar-nav .nav-link {
-      color: #ffc107 !important;
-      font-weight: 600;
-      transition: 0.3s;
-      letter-spacing: 1px;
-    }
-
-    .navbar-nav .nav-link:hover {
-      color: white !important;
-      text-shadow: 0 0 10px #ffc107;
-    }
-
-    /* ===== TÍTULOS ===== */
-    h1, h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #ffc107;
-      text-shadow: 2px 2px 20px rgba(255, 193, 7, 0.8);
-    }
-
-    h1 { font-size: 3.5rem; text-align: center; margin-bottom: 30px; }
-    h2 { font-size: 2.3rem; text-align: center; }
-
+    /* ===== SEÇÕES ===== */
     section {
-      margin-top: 60px;
-      padding: 60px 20px;
-      background-color: rgba(0,0,0,0.75);
+      background-color: rgba(0, 0, 0, 0.8);
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255,193,7,0.2);
+      padding: 40px;
+      margin-top: 60px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #ffc107;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(255,193,7,0.6);
+    }
+
+    p {
+      color: #ddd;
+      text-align: center;
     }
 
     /* ===== PARCERIAS ===== */
-    #Parcerias .parceria {
+    .sponsor-section {
       text-align: center;
-      background-color: rgba(20,20,20,0.8);
-      border-radius: 15px;
+      background-color: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
       padding: 40px 20px;
-      margin: 30px auto;
-      width: 80%;
-      max-width: 600px;
-      transition: 0.4s;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(255, 193, 7, 0.2);
+      transition: transform 0.3s ease;
     }
 
-    #Parcerias .parceria:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 25px rgba(255,193,7,0.4);
-    }
-
-    #Parcerias img {
-      width: 160px;
-      margin-bottom: 15px;
+    .sponsor-section:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 25px rgba(255, 193, 7, 0.4);
     }
 
     .btn-promo {
@@ -125,7 +100,7 @@
       text-decoration: none;
       transition: 0.3s;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 10px;
     }
 
     .btn-promo:hover {
@@ -134,12 +109,16 @@
     }
 
     /* ===== REDES SOCIAIS ===== */
-    #RedesSociais .social-buttons {
+    #RedesSociais {
+      text-align: center;
+    }
+
+    .social-buttons {
       display: flex;
       justify-content: center;
-      gap: 30px;
-      margin-top: 40px;
+      gap: 25px;
       flex-wrap: wrap;
+      margin-top: 30px;
     }
 
     .social-btn {
@@ -149,22 +128,21 @@
       background-color: #ffc107;
       color: #000;
       font-weight: bold;
-      padding: 14px 30px;
+      padding: 12px 25px;
       border-radius: 10px;
-      font-size: 1.2rem;
-      transition: 0.3s;
       text-decoration: none;
-      min-width: 180px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
     }
 
     .social-btn i {
       margin-right: 10px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
     }
 
     .social-btn:hover {
       background-color: #ffcd39;
-      transform: scale(1.05);
+      transform: scale(1.08);
       box-shadow: 0 0 15px rgba(255,193,7,0.6);
     }
 
@@ -174,21 +152,18 @@
       padding: 20px;
       color: #ccc;
       margin-top: 50px;
-      box-shadow: inset 0 0 15px rgba(255,193,7,0.3);
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Fundo com fumaça -->
+  <!-- Fundo animado -->
   <video autoplay muted loop id="smoke-bg">
     <source src="https://cdn.pixabay.com/video/2020/07/10/44816-438598674_large.mp4" type="video/mp4">
   </video>
-  <div id="overlay"></div>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-sm navbar-dark sticky-top">
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <img src="h.jpeg" alt="Logo">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -209,7 +184,6 @@
   <!-- Seção Inicial -->
   <section id="inicial" class="container text-center">
     <h1>Portfólio Netão</h1>
-    <p class="lead">Disciplina, foco e superação — o corpo reflete o que a mente acredita 🏋️‍♂️</p>
   </section>
 
   <!-- Seção Atleta -->
@@ -224,59 +198,45 @@
     </div>
   </section>
 
-  <!-- Seção Trajetória -->
+  <!-- Trajetória -->
   <section id="Tragetoria" class="container text-center">
     <h1>Minha Trajetória</h1>
-    <div class="cards-container">
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p><strong>Quem sou eu</strong></p></div>
-          <div class="flip-card-back"><p>Sou Egidio, 16 anos, em busca de evolução diária.</p></div>
-        </div>
-      </div>
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p><strong>Minha Jornada</strong></p></div>
-          <div class="flip-card-back"><p>Com 7 meses de treino, subi nos palcos do fisiculturismo.</p></div>
-        </div>
-      </div>
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-          <div class="flip-card-front"><p><strong>Conquista</strong></p></div>
-          <div class="flip-card-back"><p>Top 5 FBBF Brasil — Classic Physique Juvenil 🏆</p></div>
-        </div>
-      </div>
-    </div>
+    <p>Sou Egidio, 16 anos, atleta em constante evolução. Em apenas 7 meses de treino, conquistei o Top 5 na FBBF Brasil — Classic Physique Juvenil 🏆</p>
   </section>
 
-  <!-- PARCERIAS -->
+  <!-- Título Parcerias -->
   <section id="Parcerias" class="container text-center">
     <h1>Parcerias</h1>
-
-    <div class="parceria">
-      <img src="https://ghmuscle.com/cdn/shop/files/logo-ghmuscle.png?v=1689525454" alt="GH Muscle">
-      <h2>GH Muscle</h2>
-      <p>Ganhe <strong>5% de desconto</strong> com o cupom <strong>NETAO05</strong>.</p>
-      <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
-    </div>
-
-    <div class="parceria">
-      <img src="https://atomiclabs.com.br/cdn/shop/files/ATOMICLABS-PRETO_180x.png?v=1685652660" alt="Atomic Labs">
-      <h2>Atomic Labs</h2>
-      <p>Desconto de <strong>10%</strong> com o cupom <strong>NETAO</strong>.</p>
-      <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
-    </div>
   </section>
 
-  <!-- REDES SOCIAIS -->
-  <section id="RedesSociais" class="container text-center">
-    <h1>Redes Sociais</h1>
-    <p>Siga minha jornada e acompanhe minha evolução 💪🔥</p>
+  <!-- GH Muscle -->
+  <section class="sponsor-section container">
+    <h2>GH Muscle</h2>
+    <p>Garanta seus suplementos com <strong>5% de desconto</strong> usando o cupom <strong>NETAO05</strong>!</p>
+    <a href="https://ghmuscle.com" target="_blank" class="btn-promo">Ir para GH Muscle</a>
+  </section>
 
+  <!-- Atomic Labs -->
+  <section class="sponsor-section container">
+    <h2>Atomic Labs</h2>
+    <p>Aproveite <strong>10% de desconto</strong> em toda a loja usando o cupom <strong>NETAO</strong>!</p>
+    <a href="https://atomiclabs.com.br" target="_blank" class="btn-promo">Ir para Atomic Labs</a>
+  </section>
+
+  <!-- Redes Sociais -->
+  <section id="RedesSociais" class="container">
+    <h1>Redes Sociais</h1>
+    <p>Me acompanhe nas redes e veja minha evolução no fisiculturismo 💪🔥</p>
     <div class="social-buttons">
-      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i> TikTok</a>
-      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="https://www.instagram.com/atleta.netao/?igsh=cThtcHJnY3F1eDBj#" target="_blank" class="social-btn">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a href="https://www.tiktok.com/@atleta.netao" target="_blank" class="social-btn">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a href="https://www.youtube.com/@net%C3%A3o-y5l" target="_blank" class="social-btn">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
     </div>
   </section>
 
