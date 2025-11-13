@@ -9,6 +9,9 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Fonte chamativa para títulos -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <title>FISICULTURISTA NETÃO</title>
 
   <style>
@@ -25,6 +28,25 @@
       height: 50px;
       border-radius: 50%;
       margin-right: 10px;
+    }
+
+    /* ======== ESTILO DOS TÍTULOS ======== */
+    h1, h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffc107;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
     }
 
     .flip-card {
@@ -114,12 +136,6 @@
       margin-top: 40px;
     }
 
-    .sponsor-section h2 {
-      color: #ffc107;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
     .sponsor-section p {
       font-size: 1.1em;
       color: #ddd;
@@ -142,6 +158,10 @@
       transform: scale(1.05);
     }
 
+    /* Rolagem suave */
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
